@@ -5,7 +5,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 
-export default function Authenticated({ user, header, children }) {
+export default function Default({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -28,12 +28,18 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Blogs
                                 </NavLink>
-                                {/* <NavLink
-                                    href={route("authors")}
-                                    active={route().current("authors")}
-                                >
-                                    Authors
-                                </NavLink> */}
+                                {user ? (
+                                    <NavLink
+                                        href={route("blog.my-blogs")}
+                                        active={route().current(
+                                            "blog.my-blogs"
+                                        )}
+                                    >
+                                        My Blogs
+                                    </NavLink>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                         </div>
 
@@ -84,14 +90,8 @@ export default function Authenticated({ user, header, children }) {
                             </div>
                         ) : (
                             <div>
-                                <NavLink
-                                    href={route("login")}
-                                >
-                                    Log in
-                                </NavLink>
-                                <NavLink
-                                    href={route("register")}
-                                >
+                                <NavLink href={route("login")}>Log in</NavLink>
+                                <NavLink href={route("register")}>
                                     Register
                                 </NavLink>
                             </div>
