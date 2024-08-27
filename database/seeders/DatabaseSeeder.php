@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $blog = Blog::factory(10)->create(['user_id' => 1]);
+
         $users = User::factory(10)->create();
         // User::factory()->create([
         //     'name' => 'Test User',
@@ -21,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         foreach ($users as $user) {
-            $user = Blog::factory(10)->create(['user_id' => $user]);
+            $blog = Blog::factory(10)->create(['user_id' => $user]);
         }
     }
 }
