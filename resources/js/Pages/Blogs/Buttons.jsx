@@ -1,7 +1,8 @@
 import DangerButton from "@/Components/DangerButton";
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Link } from "@inertiajs/react";
+import { Link, useForm } from "@inertiajs/react";
 const Buttons = ({ user, blog }) => {
+    const { delete: destroy } = useForm();
     if (user && user.id == blog.user_id) {
         return (
             <div>

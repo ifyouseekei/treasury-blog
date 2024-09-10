@@ -6,7 +6,6 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import BlogItem from "./BlogItem";
 
 export default function MyBlogs({ auth, blogs }) {
-    const { delete: destroy } = useForm();
 
     return (
         <DefaultLayout
